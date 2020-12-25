@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nngn.dao.UserDao">
+
+    <!--登录根据特立查找用户是否存在/注册异步ajx请求查询当前输入用户名是否已经被注册-->
+    <select id="findBytel"  parameterType="java.lang.String" resultType="com.nngn.entity.User">
+        select * from sys_user where tel = #{tel}
+    </select>
+<!--    注册新用户-->
+    <insert id="register" parameterType="com.nngn.entity.User">
+        /*主键回填*/
+<!--        <selectKey keyProperty="id" keyColumn="id" resultType="Integer" order="AFTER"/>-->
+        INSERT INTO sys_user (tel,password,email,invitation) values(#{tel},#{password},#{email},#{invitation})
+    </insert>
+</mapper>

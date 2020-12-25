@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nngn.dao.CarCityMapper">
+
+    <select id="findCitiesByPid"  parameterType="int" resultType="com.nngn.entity.CarCity" >
+      select * from sys_city where pid=#{pid}
+    </select>
+    <select id="findCityById"  parameterType="int" resultType="com.nngn.entity.CarCity" >
+      select * from sys_city where id=#{id}
+    </select>
+
+
+
+
+</mapper>
